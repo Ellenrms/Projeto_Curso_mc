@@ -1,10 +1,13 @@
 package com.ellenmateus.cursomc.resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ellenmateus.cursomc.domain.Categoria;
 
 
 @RestController
@@ -12,8 +15,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CategoriaResource {
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String listar() {
-		return "REST está funcionando!";
+	public List<Categoria> listar() {
+		
+		
+		Categoria cat1 = new Categoria(1, "Informatica");
+		Categoria cat2 = new Categoria(2, "Escritorio");
+		
+		
+		List<Categoria> lista = new ArrayList<>();
+		lista.add(cat1);
+		lista.add(cat2);
+		
+		
+		return lista;
 		
 	}
 	
