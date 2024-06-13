@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.ellenmateus.cursomc.domain.Categoria;
 import com.ellenmateus.cursomc.domain.Produto;
 import com.ellenmateus.cursomc.repositories.CategoriaRepository;
+import com.ellenmateus.cursomc.repositories.ProdutoRepository;
 
 @SpringBootApplication
 public class CursomcApplication implements CommandLineRunner{
@@ -17,7 +18,11 @@ public class CursomcApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
-
+	
+	@Autowired
+	private ProdutoRepository produtoRepository;
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
 	}
@@ -26,8 +31,8 @@ public class CursomcApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args ) throws Exception {
 		
-		Categoria cat1 = new Categoria(null,"Informatica");
-		Categoria cat2 = new Categoria(null, "Escritorio");
+		Categoria cat1 = new Categoria(null,"Informatica",null);
+		Categoria cat2 = new Categoria(null, "Escritorio",null);
 		
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
@@ -48,6 +53,7 @@ public class CursomcApplication implements CommandLineRunner{
 		
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
+		produtoRepository.save(Arrays.asList(p1, p2, p3));
 	}
 
 }
