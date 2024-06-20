@@ -39,7 +39,12 @@ public class ItemPedidoPK implements Serializable {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(pedido, produto);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((pedido == null) ? 0 : pedido.hashCode());
+		result = prime * result + ((produto == null) ? 0 : produto.hashCode());
+		return result;
+	
 	}
 	
 	

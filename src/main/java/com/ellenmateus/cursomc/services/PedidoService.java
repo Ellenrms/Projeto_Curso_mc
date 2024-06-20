@@ -2,26 +2,28 @@ package com.ellenmateus.cursomc.services;
 
 import java.util.Optional;
 
+import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ellenmateus.cursomc.domain.Cliente;
 import com.ellenmateus.cursomc.domain.Pedido;
-import com.ellenmateus.cursomc.repositories.ClienteRepository;
+import com.ellenmateus.cursomc.repositories.PedidoRepository;
 
 @Service
-public class ClienteService {
+public class PedidoService {
 	
 	@Autowired
-	private ClienteRepository repo;
+	private PedidoRepository repo;
 	
 	
 		
-	public Cliente find(Integer id) {
-		Optional<Cliente> obj = repo.findById(id);
+	public Pedido find(Integer id) {
+		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName());
-	
+				
 }
+	
 	
 }
